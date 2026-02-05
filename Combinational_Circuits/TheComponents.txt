@@ -1,0 +1,42 @@
+First of all let me provide you with a list of all the components that we are about to build-:
+Adders: HalfAdder, FullAdder -> Multi bit Adders.
+
+Subtractors: 2's Complement Logic.
+
+Multiplexers (MUX): To select which operation to perform.
+
+Decoder: To interpret the "Opcode" (Operation Code).
+
+Comparator: Logic to set flags.
+
+Shifter: The Barrel Shifter.
+
+Each circuit in itself has an interesting history and a place in the modern processor. Let's analyze one by one.
+
+Adders-: 
+Let's venture on a journey or rather a guided tour in annals of history and see how the idea for each component was made.
+Half Adder-: So almost around the time when Claude Shanon developed the idea of using Boolean algebra for circuits, a guy named George Stibitz from (again) The Bell Labs decided to create the first binary (half)adder. It's weird and even fascinating that how a bored scientist or technician is the cause of majority of inventions in this world. George Stibitz used some scrap relays to implement what we today know as a half adder. He made this on his kitchen table and hence named it 'Model-K'. Very soon we would recreate this Model-K with our own twist and place it on the kitchen table(our processor)
+Full Adder-: The Model-K had a fundamental limitation of being stuck in isolation. It could add single bits but couldn't accept carry from a previous stage, making it useless for multi bit additions. So engineers came with a more evolved hardware, named as the full adder. This technology found it's place in the modern tech passing through ABC, ENIAC and EDVAC.
+
+Now that we have single bit adders up our sleeves and also adders that can fit into a multi-bit system, the only natural way of progression is to combine multiple full adders to create our first complete adder.
+There are multiple architectures of adders out there in the market each with it's own use case. We shall construct all of them and use them as per need.
+Another point to be noted is that we shall be creating 64 bit adders(64 bits can be added at once). This is because our register(will introduce this in the chapter of Sequential Circuits) size will be of 64 bits(much like modern day processors).
+
+Ripple Carry Adder(RCA)-: This adder would have 64 full adders connected in series, the carry-out of one adder being attached to the carry-in of another. The carry-in of the LSB (first bit) will be set to 0 and the carry would ripple from one full adder to the other until reaching the MSB (in our case, the 64th bit)
+If you are familiar with algorithm analysis, you would realize that this architecture of adder produces an adder with the time complexity of O(n). This is fairly good (polynomial time) but still when millions of instructions are executed, these tend to fail infront of other architectures. However the positive side is that it's pretty simple to implement and consumes a lot lesser space (on the chip, if you physically design it).
+The shortcomings of the RCA would be balanced by other architectures of multi bit adders. However we shall add them in upgraded versions of this project. Now we shall proceed to the next section.
+
+Subtractors-: Subtractors might sound like we are about to enter an entirely different paradigm of circuit implementation, however Mathematics has got our back!! We know from elementary arithmetic that A-B=A+(-B). This very principle can be used for subtractors. We can use the same RCA circuit but depending upon the operation the second input(say,B) or it's inverse(-B) can be added with the first input. 
+
+Now naturally a question arises that if subtractors and adders are separated by the type of instruction that is recieved then how can we achieve this branching of instructions on a physical level. The answer is through multiplexers and decoders. So let's check that out. 
+
+Multiplexers(MUX)-: The history of MUX is older than computer itself. A multiplexer is essentially a device which recieves a certain number of inputs but lets only of them pass to the output depending upon some special inputs for selection (select lines). Structures similar to multiplexers were used in Telegram lines, when back in the days, copper wiring was expensive and a lot of output wires couldn't be constructed. Hence multiplexers were used to let one input pass at a time. 
+A MUX essentially takes 2^n inputs and n select lines. Based on the n select lines, only one out of the 2^n inputs is allowed to the output terminal. 
+
+Now that we have dealt with multiplexers, let's wrap our heads around a decoder. This is specifically interesting because this essentially is the soul of all the programming that you see around. Back in the days of ENIAC, computer scientists had to essentially program the computer by physically connecting and disconnecting plugs and toggling the switches. This though sounding simple was extermely tedious. Imagine having to code GTA-VI this way... with all the delay associated with already, we might as well have had to expect the game to release in 3026 instead of 2026(though I guess that might be an understatement as well). 
+So to get rid of the physical rewiring, computer scientists came up with an innovative solution. They decided to associate a unique binary code with each instruction. Like say ADD was associated with 000, SUB was associated with 001 etc. Now when these binary codes were received, some component read this code and turned on the specific circuit responsible for it. This component is the decoder. The decoder essentially lies in the Control Unit(a component we will discuss about and build later) of the processor where it receives the instruction, decodes it and sends signal to the rest of the part for execution. A decoder takes n inputs and activates one of the 2^n output signals from it.
+
+The next circuit ideally in the series must be comparators. However the modern day implementation of comparators is not as a standalone circuit but more like reusing existing circuits of subtractors and status registers(something we shall cover in the next section).Though the comparators did exist even earlier than sequential circuit and their implementation was based on simple bitwise math, yet they were slow and inefficient (and most importantly they are no longer used). So for the sake of modularity, we shall include the comparators module in this section, but to understand it, one must refer to sequential circuits first.
+
+So, last but not the least, we have arrived at the Barrel Shifter.The objective of a barrel shifter is to shift a given binary number by certain number of places in either left or right direction. Now intuitively speaking, the barrel shifter just don't fit in the story. Like we do addition, subtraction, comparision etc, but shifting is something we seldom do in day to day mathematics (unless we are solving some pattern problems). So why and how did someone think of adding this stuff to the CPU? Like isn't simply an utter waste of labour, circuit space and money?? The answer is no! 
+If you reanalyze your school level mathematical computation, then you would realize that the operations like multiplication and division were simply repeated addition and repeated subtraction. This was what the initial computers did. As you might have realized yourself as well, this was very inefficient. So the computer scientists came up with the same startegy that we use. Multiplying using basic tables and shifting as we move across ones place, tens place, hundreds place and so on. Now since the computers work in binary, we don't essentially have to memorize any tables but shifting is something we require for sure. This is where the Barrel shifters come into play.

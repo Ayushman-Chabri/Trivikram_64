@@ -1,0 +1,9 @@
+ Hey,reader!!
+ Glad to see you this side. The journey of learning is such that few begin the voyage, yet fewer muster the courage to hold up and only a handful reach the destination. Since you have held up against level 1, welcome to the next level.
+ In computer science there is a fundamental principle regarding abstraction. As we enter more and more complex operations we go around taking the technology that constitute those operations for granted(taking them as some pre existing tool that we can directly use). This is done so that we can straight away focus on the functionality rather than the minute hardware level implementation. For example, if a video editor has to edit a video of his and his girlfriend( I know, I touched a painful spot for many) for the Valentine's week, then he need not bother himself with how the video editing software works at the binary level and how it interacts with the keyboard, monitor, memory etc. He simply has to assume that the computer and the software is for granted(they exist already) and he can build up his video editing project using these resources.
+ This was a specific case of abstraction but this principle is used almost everywhere in computer science. 
+Now that we have built the logic circuits (which essentially deal with a single or at most two bits at a time), let's try and focus on operations that we can execute with a larger group of 0's and 1's and you may believe or not, we are about to teach sand, how to do math.
+Now, naturally the next level of abstraction would involve, assuming these logic gates to be pre existing (though we just built it out of thin air) and making stuff by combining them. In the domain of technology such circuits are called combinational circuits. For the sake of technical rigour and objectivity, we have an exact definition for such circuits but I believe that they would be more interesting to you, once we start with sequential circuits. So till then enjoy this.
+
+
+
