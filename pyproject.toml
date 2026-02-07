@@ -1,0 +1,56 @@
+[build-system]
+# This section tells pip "How to build this package"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# 1. Project Identity
+name = "trivikrama"
+version = "0.1.0"
+description = "A 64-bit CPU architecture simulated from first principles in Python."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+# 2. Author Info (Crucial for professional packages)
+authors = [
+  {name = "Ayushman Chabri", email = "chabriayushman@gmail.com"}
+]
+
+# 3. Dependencies (What your user needs to run this)
+# Currently empty, but we will add things like 'pytest' here later.
+dependencies = [
+    # "numpy",  <-- Example: if we decide to use numpy later
+]
+
+# 4. Keywords (Helps recruiters/users find your project)
+keywords = ["cpu", "simulator", "architecture", "risc", "python", "hardware"]
+
+# 5. Classifiers (Metadata for PyPI)
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Hardware",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Ayushman-Chabri/Trivikrama-64"
+"Bug Tracker" = "https://github.com/Ayushman-Chabri/Trivikrama-64/issues"
+
+# --- TOOL CONFIGURATIONS (The Power Move) ---
+
+# Configure Black (The Code Formatter)
+# This ensures your code always looks professional automatically.
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+# Configure Pytest (The Testing Framework)
+# This tells pytest where to look for tests.
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
