@@ -26,12 +26,14 @@ class Clock:
             self.running=True
             self._thread=Clock.threading.Thread(target=self.toggle_loop)
             self._thread.start()
+            #The following line may be removed or edited in the final product
             print(f"Clock started at speed {self.period}")
     def stop(self):
         if self.running:
             self.running=False
             if self._thread:
                 self._thread.join()
+            #The following line may be removed or edited in the final product
             print("Clock halted")
     def toggle_loop(self):
         while self.running:
