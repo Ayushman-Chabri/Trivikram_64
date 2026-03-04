@@ -1,5 +1,5 @@
 from Basic_Gates import Logic_Gate_module as lgm
-from Physics_Of_The_Project import Clock
+from trivikram_64.physics_of_the_project import Clock
 
 
 class D_Flipflop:

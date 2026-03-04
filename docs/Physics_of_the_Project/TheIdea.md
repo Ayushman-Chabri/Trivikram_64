@@ -9,3 +9,5 @@ However a downside of this was that this system was bulky,expensive and too slow
 During this time some other great minds like *Michael Faraday* and his likes were making path breaking discoveries in the field of electricity. Almost half a century after the design of analytical engine, did someone succeed in converting electricity into light and heat energy, and that someone was none other than *Thomas Edison*. This moment was historical in it's own terms but this was also the day, that the realm of computing saw a new dawn.
 
 Now the fundamental limitations of engines of steam were to be countered with the strengths of electricity. However the use of electricity introduced it's own set of problems (whose solution, surprisingly existed even before the problem itself). This part though would be dealt with in the next section.
+
+

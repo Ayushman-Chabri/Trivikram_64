@@ -36,7 +36,7 @@ class Clock:
             #The following line may be removed or edited in the final product
             print("Clock halted")
     def toggle_loop(self):
-        while self.running:
+        while self.running: 
             self.state=1
             Clock.time.sleep(self.period/2)
             self.state=0

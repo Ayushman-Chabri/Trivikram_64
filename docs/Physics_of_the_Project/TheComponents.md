@@ -20,3 +20,4 @@ Refer to
 **The Voltage-:** The voltage in computers determine whether a certain signal is to be termed as a 0 or 1 based on the configurations of the transistors used in the circuit of the computer. Since we aren't implementing it on physical hardware, here the number 1 would be considered as 1 and 0 would be considered as 0.
 
 **Additional Constructs-:** Since we are following a *64 bit archietcture* (the term will be explained soon) physically connecting every device would be tiresome and monotonous. Therefore we might take help of Python constructs like *loops* and *conditionals*. This however shouldn't be viewed as a deviation from first principle implementation because even *Hardware Description Languages* make use of *Behavioral approach* which in turn, employ *procedural constructs* (The last line is only for those who have some basic idea of HDL. Others can ignore).
+
